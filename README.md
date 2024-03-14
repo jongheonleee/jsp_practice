@@ -1,6 +1,6 @@
 # 정석 코딩 부트 캠프 공부 기록
 
-# 📌 카드 게임 구현
+# 📌 1. 카드 게임 구현
 
 구현 결과 > 
 
@@ -60,8 +60,7 @@
 
 ### 클래스, 객체 정의
 #### View
-InputView : 사용자로부터 입력값 받음 <br>
-OutputView : 사용자에게 출력함 <br>
+CardGameServlet : 사용자의 입력값/출력값 처리 <br>
 
 #### Controller
 GameController : 게임 전체 흐름 담당 <br>

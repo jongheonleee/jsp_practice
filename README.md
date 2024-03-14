@@ -59,11 +59,8 @@
 [] 카드 비교
 
 ### 클래스, 객체 정의
-#### View
+#### View & Controller
 CardGameServlet : 사용자의 입력값/출력값 처리 <br>
-
-#### Controller
-GameController : 게임 전체 흐름 담당 <br>
 
 #### Model
 GameModerator : 게임 진행자, 게임 내에 발생하는 추가 설명,,,을 처리 <br>

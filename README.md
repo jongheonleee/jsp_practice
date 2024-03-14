@@ -60,15 +60,15 @@
 
 ### 클래스, 객체 정의
 #### View
-InputView : 사용자로부터 입력값 받음
-OutputView : 사용자에게 출력함
+InputView : 사용자로부터 입력값 받음 <br>
+OutputView : 사용자에게 출력함 <br>
 
 #### Controller
-GameController : 게임 전체 흐름 담당
+GameController : 게임 전체 흐름 담당 <br>
 
 #### Model
-GameModerator : 게임 진행자, 게임 내에 발생하는 추가 설명,,,을 처리 
-Player : 사용자 정보, 현재 상태 기록
-Card : 카드 객체, 카드 정보 및 상태 기록
+GameModerator : 게임 진행자, 게임 내에 발생하는 추가 설명,,,을 처리 <br>
+Player : 사용자 정보, 현재 상태 기록 <br>
+Card : 카드 객체, 카드 정보 및 상태 기록 <br>
 Deck : 카드 덱 객체 
 

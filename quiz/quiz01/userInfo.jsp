@@ -13,7 +13,7 @@ String id = request.getParameter("id");
 String pwd = request.getParameter("pwd");
 %>
 
-<h1>Hello!!, <%=id%></h1>
-<h1>Your password is <%=pwd%></h1>
+<h1>id : <%=id%></h1>
+<h1>pwd : <%=pwd%></h1>
 </body>
 </html>

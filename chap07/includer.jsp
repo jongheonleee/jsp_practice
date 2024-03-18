@@ -7,7 +7,7 @@
 	int number = 10;
 %>
 
-<%@ include file="/includee.jspf" %>
+<%@ include file="/chap07/includee.jspf" %>
 
 공통변수 DATAFOLDER = "<%= dataFolder %>"
 

@@ -9,7 +9,7 @@
 
 이 페이지는 from.jsp가 생성한 것입니다.
 
-<jsp:forward page="/to/to.jsp" />
+<jsp:forward page="/chap07/to/to.jsp" />
 
 </body>
 </html>

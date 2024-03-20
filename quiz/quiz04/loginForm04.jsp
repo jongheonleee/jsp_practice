@@ -2,15 +2,20 @@
     pageEncoding="UTF-8"%>
     
 <%
+
+/* 	String url = request.getRequestURI(); */
+	String previous = request.getParameter("previous");
+	System.out.println("loginForm = " + previous);
 	// 1. 쿠기 배열 참조
 	// 2. 아이디 값 있으면 저장
 	// 3. 체크 박스에 표시 되어 있는 경우
-	String id = "";
+ 	String id = "";
 	String isChecked = request.getParameter("remember");
+	System.out.println("Form : > " + isChecked);
 	Cookie[] cookies = request.getCookies();
 	
 	
-	if (isChecked != null && isChecked.equals("on")) {
+	if ("on".equals(isChecked)) {
 		for (Cookie cookie : cookies) {
 			if (cookie.getName().equals("id") && cookie.getValue().equals("asdf")) {
 				id = cookie.getValue();
@@ -23,7 +28,7 @@
 				isChecked = "on";
 			}
 		}
-	}
+	} 
 	
 
 %>
@@ -96,10 +101,10 @@ span.psw {
 
 <h2>Login Form</h2>
 
-<form action="/LoginController3" method="post">
+<form action="/LoginFilter04/<%= previous %>" method="post">
   <div class="container">
     <label><b>ID</b></label>
-    <input type="text" placeholder="Enter ID" name="id" id="id" value = "<%=id %>" required>
+    <input type="text" placeholder="Enter ID" name="id" id="id" value="<%= id %>"  required>
 
     <label><b>PASSWORD</b></label>
     <input type="text" placeholder="Enter PASSWORD" name="pwd" id="pwd" required>
@@ -117,8 +122,8 @@ span.psw {
   </div>
 </form>
 <script type="text/javascript">
-const rememberBox = document.getElementById("remember");
-rememberBox.checked = <%= isChecked == "on" ? true : false %>;
+	const rememberBox = document.getElementById("remember");
+	rememberBox.checked = <%= "on".equals(isChecked) ? true : false %>; 
 </script>
 </body>
 </html>

@@ -4,31 +4,24 @@
 <%
 
 /* 	String url = request.getRequestURI(); */
-	String previous = request.getParameter("previous");
-	System.out.println("loginForm = " + previous);
 	// 1. 쿠기 배열 참조
 	// 2. 아이디 값 있으면 저장
 	// 3. 체크 박스에 표시 되어 있는 경우
+	String previous = request.getParameter("previous");
  	String id = "";
 	String isChecked = request.getParameter("remember");
-	System.out.println("Form : > " + isChecked);
+	// System.out.println("Form : > " + isChecked);
 	Cookie[] cookies = request.getCookies();
 	
 	
-	if ("on".equals(isChecked)) {
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("id") && cookie.getValue().equals("asdf")) {
-				id = cookie.getValue();
-			}
+	
+	for (Cookie cookie : cookies) {
+		System.out.println(cookie.getValue());
+		if (cookie.getName().equals("id") && cookie.getValue().equals("asdf")) {
+			id = cookie.getValue();
+			isChecked = "on";
 		}
-	} else {
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("id") && cookie.getValue().equals("asdf")) {
-				id = cookie.getValue();
-				isChecked = "on";
-			}
-		}
-	} 
+	}
 	
 
 %>
@@ -112,7 +105,7 @@ span.psw {
     <button type="submit" class="loginButton">login</button>
     <br>
     <label>
-      <input id = "remember" type="checkbox" name="remember"> Remember me
+      <input id = "remember" type="checkbox" name="remember" cheked = <%= isChecked %>> Remember me
     </label>
   </div>
 

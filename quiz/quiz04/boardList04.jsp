@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="header.jsp" flush="false"/>
+<jsp:include page="header04.jsp" flush="false"/>
 <body>
 
 <!-- Navbar -->

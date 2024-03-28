@@ -1,9 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String userName = "여늘";
-	String from = "board05.jsp";
+	String from = "";
+	String current = "board05.jsp";
 	String logout = "clicked";
+	
+	if (request.getParameter("from") != null) {
+		from = request.getParameter("from");
+	} else {
+		from = "board05.jsp";
+	}
+	
+	// 이전 페이지 정보 조회 
+	String userId = "";
+	
+	// 쿠키 조회
+	Cookie[] cookies = request.getCookies();
+	for (Cookie cookie : cookies) {
+		if (cookie.getName().equals("id")) {
+			userId = cookie.getValue();
+		}
+	}
+	
+	HttpSession session2 = request.getSession();
+	if (session2 != null && session2.getAttribute("id") != null && session2.getAttribute("id").equals("asdf")) {
+		userId = "asdf";
+	}
+	
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -91,16 +115,16 @@
 	<jsp:include page="header05.jsp" flush="false"/>
 	
 	<div class="navbar">
-	  <a href="/filter05/index05.jsp?from=<%=from%>">홈</a>
+	  <a href="/quiz/quiz05/index05.jsp?from=<%=from%>">홈</a>
 	  <a href="/filter05/board05.jsp?from=<%=from%>">글목록</a>
 	  <a href="/filter05/loginForm05.jsp?from=<%=from%>">로그인</a>
-	  <a href="/filter05?from=<%=logout%>" class="right">로그아웃</a>
+	  <a href="/filter05?from=<%=current%>&&logout=<%=logout %>" class="right">로그아웃</a>
 	</div>
 	
 	<!-- 실제 내용, 달라지는 부분  -->
 	<div class="row">
 	  <div class="side">
-	    <p style="text-align: center;">글 목록에 오신것을 환영합니다. <strong>"<%= userName %>"</strong> 님 소중한 오늘 하루 열공하세요...!</h2>
+	    <p style="text-align: center;">글 목록에 오신것을 환영합니다. <strong>"<%= userId %>"</strong> 님 소중한 오늘 하루 열공하세요...!</h2>
 	  </div>
 	  
 	  <div class="main">
@@ -113,7 +137,7 @@
 	 	<br>
 	 	
 	 	<hr>
-	    <h2>2. 인터페이스와 추상 클래스의 차이는 iv 유뮤다!!</h2>
+	    <h2>2. 인터페이스와 추상 클래스의 차이는 iv 유무다!!</h2>
 	    <h5>(2024/03/27 by 종헌)</h5>
 	    <p>인터페이스와 추상 클래스의 차이...</p>
 	    <p>"iv 유무입니다." 인터페이스에는 iv가 없지만 추상 클래스는 iv가 존재합니다. 물론 공통점도 많습니다...</p>

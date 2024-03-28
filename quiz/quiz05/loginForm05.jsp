@@ -1,8 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	// 이전 페이지 정보 조회 
 	String from = request.getParameter("from");
-	System.out.println(from);
+	if (from == null  || from == "") {
+		from = "index05.jsp";
+	}
+	String userId = "";
+
+	// 쿠키 조회
+	Cookie[] cookies = request.getCookies();
+	for (Cookie cookie : cookies) {
+		if (cookie.getName().equals("id")) {
+			userId = cookie.getValue();
+			request.setAttribute("checked", true);
+		}
+	}
 %>
 
 <!DOCTYPE html>
@@ -98,7 +111,7 @@ span.psw {
 	<form action="/filter05" method="post">
 	  <div class="container">
 	    <label><b>ID</b></label>
-	    <input type="text" placeholder="Enter ID" name="id" id="id" value=""  required>
+	    <input type="text" placeholder="Enter ID" name="id" id="id" value="<%= userId %>"  required>
 	
 	    <label><b>PASSWORD</b></label>
 	    <input type="text" placeholder="Enter PASSWORD" name="pwd" id="pwd" required>
@@ -106,7 +119,7 @@ span.psw {
 	    <button type="submit" class="loginButton">login</button>
 	    <br>
 	    <label>
-	      <input id = "remember" type="checkbox" name="remember"> remember me
+	      <input id = "remember" type="checkbox" name="remember" ${ checked ? 'checked' :''}> remember me
 	    </label>
 	  </div>
 	</form>

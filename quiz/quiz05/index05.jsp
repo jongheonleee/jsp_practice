@@ -1,8 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String from = "index05.jsp";
+	String from = "";
+	String current = "index05.jsp";
 	String logout = "clicked";
+	
+	if (request.getParameter("from") != null) {
+		from = request.getParameter("from");
+	} else {
+		from = "index05.jsp";
+	}
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -66,10 +74,10 @@
 	<jsp:include page="header05.jsp" flush="false"/>
 	
 	<div class="navbar">
-	  <a href="/filter05/index05.jsp?from=<%=from%>">홈</a>
+	  <a href="/quiz/quiz05/index05.jsp?from=<%=from%>">홈</a>
 	  <a href="/filter05/board05.jsp?from=<%=from%>">글목록</a>
 	  <a href="/filter05/loginForm05.jsp?from=<%=from%>">로그인</a>
-	  <a href="/filter05?from=<%=logout%>" class="right">로그아웃</a>
+	  <a href="/filter05?from=<%=current%>&&logout=<%=logout %>" class="right">로그아웃</a>
 	</div>
 	
 	<img src="/quiz/img/img1.png">
